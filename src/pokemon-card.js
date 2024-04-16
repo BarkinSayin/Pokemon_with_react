@@ -3,6 +3,20 @@ import { useState, useEffect } from "react";
 function PokemonCard(pokemon, filterInput) {
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
+  const fetchPokemonDetails = async () => {
+    try {
+      const res = await fetch(pokemon.url);
+      const data = await res.json();
+      setPokemonDetails(data);
+    } catch (error) {
+      console.error("Error fetching Pokemon details:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchPokemonDetails();
+  });
+
   return (
     <div className="pokemon-card">
       <img

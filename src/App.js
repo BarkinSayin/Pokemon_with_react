@@ -2,11 +2,13 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import Header from "header.js";
 import Inputs from "inputs.js";
+import Footer from "footer.js";
+import PokemonCard from "pokemon-card.js";
 
 function App() {
   const pokemonApiURL = "https://pokeapi.co/api/v2/";
 
-  const [pokemonInput, setPokemonInput] = useState({
+  const [filterInput, setfilterInput] = useState({
     pokemonName: "",
     typeName: "",
   });
@@ -31,6 +33,15 @@ function App() {
       <Header />
       <div className="main-content">
         <Inputs />
+        <div className="pokemon-card-container">
+          {pokemonList.map((pokemon, index) => (
+            <PokemonCard
+              key={index}
+              pokemon={pokemon}
+              filterInput={filterInput}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

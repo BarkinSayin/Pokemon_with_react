@@ -12,6 +12,20 @@ function App() {
   });
   const [pokemonList, setPokemonList] = useState([]);
 
+  const getAllPokemons = async (limit = 151, offset = 0) => {
+    try {
+      const result = await fetch(
+        `${pokemonApiURL}pokemon?limit=${limit}&offset=${offset}`
+      );
+      const data = await result.JSON();
+      setPokemonList(data);
+    } catch (error) {
+      console.error("Error fetchingPokemon list:", error);
+    }
+  };
+
+  useEffect(() => getAllPokemons(), []);
+
   return (
     <div className="App">
       <Header />

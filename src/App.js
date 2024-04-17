@@ -36,7 +36,7 @@ function App() {
     <div className="App">
       <Header />
       <div className="main-content">
-        <Inputs filterInput={filterInput} setfilterInput={setfilterInput} />
+        <Inputs filterInput={filterInput} setFilterInput={setfilterInput} />
         <div className="pokemon-card-container">
           {pokemonList.map((pokemon, index) => (
             <PokemonCard

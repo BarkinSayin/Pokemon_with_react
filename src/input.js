@@ -1,4 +1,4 @@
-function Inputs(filterInput, setFilterInput) {
+function Inputs({ filterInput, setFilterInput }) {
   return (
     <form className="filters">
       <input

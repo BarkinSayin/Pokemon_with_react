@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 function PokemonCard(pokemon, filterInput) {
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
+  //Pokemonun özelliklerine ulaşmamızı sağlayan fetch işlemi
   const fetchPokemonDetails = async () => {
     try {
       const res = await fetch(pokemon.url);
@@ -13,15 +14,18 @@ function PokemonCard(pokemon, filterInput) {
     }
   };
 
+  //Her render olduğunda bu fonksiyonu çalıştırıyor
   useEffect(() => {
     fetchPokemonDetails();
   });
 
+  //Baş harflerini büyük yapan fonksiyon
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
   return (
+    //Conditional render ile filtreleme işlemi
     (pokemonDetails || null) &&
     pokemonDetails.name
       .toLowerCase()

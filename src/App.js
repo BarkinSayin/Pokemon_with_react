@@ -14,6 +14,7 @@ function App() {
   });
   const [pokemonList, setPokemonList] = useState([]);
 
+  //Belirlenen limit kadar pokemon verisi çeken fonksiyonu
   const getAllPokemons = async (limit = 151, offset = 0) => {
     try {
       const result = await fetch(
@@ -26,6 +27,7 @@ function App() {
     }
   };
 
+  //Sadece ilk render'dan sonra bu fonksiyonu çalıştırır
   useEffect(() => getAllPokemons(), []);
 
   return (

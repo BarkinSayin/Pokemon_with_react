@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function PokemonCard(pokemon, filterInput) {
+function PokemonCard({ pokemon, filterInput }) {
   const [pokemonDetails, setPokemonDetails] = useState(null);
 
   //Pokemonun özelliklerine ulaşmamızı sağlayan fetch işlemi
@@ -17,7 +17,7 @@ function PokemonCard(pokemon, filterInput) {
   //Her render olduğunda bu fonksiyonu çalıştırıyor
   useEffect(() => {
     fetchPokemonDetails();
-  });
+  }, []);
 
   //Baş harflerini büyük yapan fonksiyon
   function capitalizeFirstLetter(string) {
@@ -31,9 +31,7 @@ function PokemonCard(pokemon, filterInput) {
       .toLowerCase()
       .includes(filterInput.pokemonName.toLowerCase()) &&
     pokemonDetails.types.some((type) =>
-      type.type.name
-        .toLowerCase()
-        .includes(filterInput.pokemonType.toLowerCase())
+      type.type.name.toLowerCase().includes(filterInput.typeName.toLowerCase())
     ) && (
       <div className="pokemon-card">
         <img
@@ -41,9 +39,9 @@ function PokemonCard(pokemon, filterInput) {
           alt={pokemonDetails.name}
           className="pokemon-image"
         />
-        <h3 className="pokemon-name">
-          {`${pokemonDetails.id}.${capitalizeFirstLetter(pokemonDetails.name)}`}
-        </h3>
+        <h3 className="pokemon-name">{`${
+          pokemonDetails.id
+        }. ${capitalizeFirstLetter(pokemonDetails.name)}`}</h3>
         <h4>Types:</h4>
         <div className="types">
           {pokemonDetails.types.map((type, index) => (

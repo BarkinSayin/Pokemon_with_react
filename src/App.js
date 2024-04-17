@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Header from "header.js";
-import Inputs from "inputs.js";
-import Footer from "footer.js";
-import PokemonCard from "pokemon-card.js";
+import Header from "./Header.js";
+import Inputs from "./input.js";
+import Footer from "./Footer.js";
+import PokemonCard from "./pokemon-card.js";
 
 function App() {
   const pokemonApiURL = "https://pokeapi.co/api/v2/";
@@ -20,15 +20,17 @@ function App() {
       const result = await fetch(
         `${pokemonApiURL}pokemon?limit=${limit}&offset=${offset}`
       );
-      const data = await result.JSON();
-      setPokemonList(data);
+      const data = await result.json();
+      setPokemonList(data.results);
     } catch (error) {
       console.error("Error fetchingPokemon list:", error);
     }
   };
 
   //Sadece ilk render'dan sonra bu fonksiyonu çalıştırır
-  useEffect(() => getAllPokemons(), []);
+  useEffect(() => {
+    getAllPokemons();
+  }, []);
 
   return (
     <div className="App">

@@ -4,7 +4,7 @@ function Header() {
   return (
     <div className="header">
       <div className="header-left">
-        <img src={logo} alt="pokemon-ball-icon" />
+        <img src={logo} alt="pokemon" className="pokemon-ball-icon" />
         <p>Pokemon</p>
       </div>
       <div className="header-right">

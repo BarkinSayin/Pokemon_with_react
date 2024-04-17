@@ -1,3 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: "Miltonian Tattoo", serif;
+}
+:root {
+  --pokemon-red: #fb1b1b;
+  --pokemon-yellow: #f6cf57;
+  --pokemon-blue: #0a285f;
+  --footer-text: #b5556d;
+  --footer-icons: #fbde68;
+  --palceholder-color: #cc466c;
+}
 .App {
   text-align: center;
+  min-height: 100vh;
+}
+.header {
+  background-color: var(--pokemon-red);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 6rem 5px 6rem;
+}
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pokemon-ball-icon {
+  height: 50px;
+}
+.header-left p {
+  font-size: 40px;
+  font-weight: 700;
+  -webkit-text-fill-color: var(--pokemon-yellow);
+  -webkit-text-stroke: var(--pokemon-blue) 1.4px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.header-right a {
+  font-size: 25px;
+  font-weight: 700;
+  -webkit-text-fill-color: var(--pokemon-yellow);
+  -webkit-text-stroke: var(--pokemon-blue) 0.8px;
 }

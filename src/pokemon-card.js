@@ -17,6 +17,10 @@ function PokemonCard(pokemon, filterInput) {
     fetchPokemonDetails();
   });
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
   return (
     (pokemonDetails || null) &&
     pokemonDetails.name
@@ -34,13 +38,13 @@ function PokemonCard(pokemon, filterInput) {
           className="pokemon-image"
         />
         <h3 className="pokemon-name">
-          {`${pokemonDetails.id}.${pokemonDetails.name}`}
+          {`${pokemonDetails.id}.${capitalizeFirstLetter(pokemonDetails.name)}`}
         </h3>
         <h4>Types:</h4>
         <div className="types">
           {pokemonDetails.types.map((type, index) => (
             <ul key={index} className="type-name">
-              {type.type.name}
+              {capitalizeFirstLetter(type.type.name)}
             </ul>
           ))}
         </div>

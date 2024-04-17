@@ -97,3 +97,24 @@ input::placeholder {
 .pokemon-card img {
   height: 120px;
 }
+.footer-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 25px;
+  font-size: 30px;
+}
+.footer-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--footer-text);
+  font-weight: bold;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.footer-icons a {
+  color: var(--footer-icons);
+}

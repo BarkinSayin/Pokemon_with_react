@@ -97,6 +97,9 @@ input::placeholder {
 .pokemon-card img {
   height: 120px;
 }
+.type-name {
+  font-size: 14px;
+}
 .footer-icons {
   display: flex;
   justify-content: center;
